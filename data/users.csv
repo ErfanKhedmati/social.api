@@ -1,0 +1,5 @@
+user_id,username,password,full_name,role,bio,created_at
+1,admin_milad,Admin!113X,Milad Ahmadi,ADMIN,"ارﺷﺪ ﺳﯿﺴﺘﻢﻣﺴﺌﻮل اﻣﻨﯿﺖ و ﭘﺎﯾﺪاری",2025-05-0108:30:00
+2,sara_tech,Sara!126Sec,Sara Rezaei,USER,Frontend developer who,2025-05-02 10:15:22
+3,ali_karimi,Alika#139X,Ali Karimi,USER,ﻋﺎﺷﻖ ﻋﮑﺎﺳﯽ ﻣﺴﺘﻨﺪ وﺳﻔﺮ ﺑﻪ ﻧﻘﺎط ﻧﺎﺷﻨﺎﺧﺘﻪ, 2025-05-03 14:22:11
+4,erfan,erfan2006,erfan khedmati,USER,Jonior developer,2026-07-02 13:57:50
