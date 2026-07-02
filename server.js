@@ -1,6 +1,6 @@
 import express from "express"
 import userRoutes from "./routes/user.route.js"
-import { UserStore } from "./store/store.js"
+import { UserStore, SystemStore } from "./store/store.js"
 
 const app = express();
 
@@ -11,7 +11,9 @@ app.use(express.urlencoded({extended: true}));
 
 // Store
 export const userStore = new UserStore();
+export const systemStore = new SystemStore();
 userStore.update();
+systemStore.update();
 
 // routes
 app.use("/api/user", userRoutes);
