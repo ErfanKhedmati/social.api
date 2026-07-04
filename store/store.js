@@ -1,4 +1,4 @@
-import { getAllUsers } from "../controller/user.controller.js";
+import { getAllUsers, addUser } from "../controller/user.controller.js";
 import { getSystemState } from "../controller/system.controller.js";
 import systemModel from "../models/system.model.js";
 
@@ -7,16 +7,24 @@ export class UserStore {
         this.users = [];
     }
 
-    add(user) {
+    async add(user) {
+        const newUser = await addUser(user);
+        console.log(newUser);
         
+        if (newUser.success) {
+            this.users.push(newUser.user);
+            return { success: true, user: newUser.user };
+        } else {
+            return { success: false, user: null };
+        }
     }
 
     remove(userId) {
         this.users = this.users.filter(user => user.id !== userId);
     }
 
-    update() {
-        this.users = getAllUsers();
+    async update() {
+        this.users = await getAllUsers();
     }
 
     getAllUsers() {
@@ -34,19 +42,23 @@ export class SystemStore {
         this.system = state;
     }
 
-    getUser () {
+    getUser() {
         return this.system.user;
     }
 
-    getNextUserId () {
+    getNextUserId() {
         return this.system.nextUserId;
     }
 
-    getNextPostId () {
+    getNextPostId() {
         return this.system.nextPostId;
     }
 
-    getLastBackupTimeApp () {
+    getLastBackupTimeApp() {
         return this.system.lastBackupTimeApp;
+    }
+
+    icreaseUserId() {
+        this.system.nextUserId += 1;
     }
 }
